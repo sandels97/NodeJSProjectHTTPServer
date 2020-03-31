@@ -5,6 +5,7 @@ const app = express()
 const port = 3000
 
 app.use("/", express.static('public'))
+app.use("/hello", express.static('./public/hello.html'))
 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true}));
@@ -13,7 +14,7 @@ app.use(cors());
 app.get("/api", function (req, res) {
 	
 	res.setHeader('Content-Type', 'application/json');
-	res.send({ msg: "Hello"});
+	res.send({ msg: "Hello, World!"});
 })
 
 app.get("/api/exercise", function (req, res) {
